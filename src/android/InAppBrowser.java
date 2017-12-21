@@ -141,6 +141,7 @@ public class InAppBrowser extends CordovaPlugin {
 
             if (null != cookies) {
                 Iterator<?> cookiesNames = cookies.keys();
+                CookieManager.createInstance(cordova.getActivity().getApplicationContext());
                 while (cookiesNames.hasNext()) {
                     String key = (String)cookiesNames.next();
                     CookieManager.getInstance().setCookie(domain, key + "=" + cookies.get(key));
